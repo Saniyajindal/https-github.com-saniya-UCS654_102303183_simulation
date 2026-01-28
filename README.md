@@ -47,8 +47,6 @@ The system is modelled as a discrete-event simulation using SimPy:
 | num_counters     | Number of service counters available     | 1           | 5           |
 | simulation_time  | Total simulation duration                | 200         | 500         |
 
-These bounds were chosen to represent realistic and stable system behaviour.
-
 ---
 
 ## 5. Data Generation Methodology
@@ -65,8 +63,6 @@ Each simulation run produces one data sample.
 
 ## 6. Dataset Description
 
-The generated dataset contains the following features:
-
 | Feature Name   | Description                               |
 |---------------|-------------------------------------------|
 | arrival_rate  | Customer arrival rate                     |
@@ -74,21 +70,9 @@ The generated dataset contains the following features:
 | num_counters  | Number of counters                        |
 | avg_wait      | Average customer waiting time (target)    |
 
-The dataset is saved as `simulation_data.csv`.
-
 ---
 
-## 7. Data Visualization
-A scatter plot is generated to visualize the relationship between arrival rate and average waiting time.  
-This helps in understanding the system behaviour and validates the simulation results.
-
-*(Insert scatter plot image here if available)*
-
----
-
-## 8. Machine Learning Models Used
-The following regression models were trained and evaluated:
-
+## 7. Machine Learning Models Used
 1. Linear Regression  
 2. Decision Tree Regressor  
 3. Random Forest Regressor  
@@ -98,40 +82,36 @@ The following regression models were trained and evaluated:
 
 ---
 
-## 9. Model Evaluation Metrics
-The models were evaluated using:
-- **Mean Squared Error (MSE)**  
-- **R² Score**
-
-These metrics help in comparing prediction accuracy and model performance.
+## 8. Model Evaluation Metrics
+- Mean Squared Error (MSE)  
+- R² Score  
 
 ---
 
-## 10. Results and Comparison
-A comparison table was generated showing the performance of all models.  
+## 9. Results and Comparison
+A comparison graph of ML models based on **R² Score** is shown below:
+
+![Model Comparison Graph](graph.png)
+
 Tree-based ensemble models such as **Random Forest** and **Gradient Boosting** performed the best, achieving higher R² scores and lower prediction errors.
-<img src="https://github.com/user-attachments/assets/xxxx" />
-
 
 ---
 
-## 11. Conclusion
+## 10. Conclusion
 This project demonstrates how modelling and simulation can be effectively used to generate synthetic data for machine learning tasks.  
-The use of SimPy enabled realistic system simulation, and the generated data was successfully used to train and compare multiple ML models.
-
-Simulation-based data generation is especially useful in situations where real data is scarce or difficult to obtain.
+The generated data was successfully used to train and compare multiple ML models.
 
 ---
 
-## 12. Files in the Repository
-- `simulation_ml.ipynb` – Google Colab notebook containing simulation and ML code  
+## 11. Files in the Repository
+- `simulation_ml.ipynb` – Simulation and ML code  
 - `simulation_data.csv` – Generated dataset  
 - `README.md` – Project documentation  
 
 ---
 
-## 13. How to Run
+## 12. How to Run
 1. Open the notebook in Google Colab  
 2. Install SimPy using `pip install simpy`  
 3. Run all cells sequentially  
-4. Observe simulation results, graphs, and model comparison  
+4. Observe simulation results and model comparison graph  

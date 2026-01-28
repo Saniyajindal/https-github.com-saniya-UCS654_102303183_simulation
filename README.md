@@ -110,8 +110,8 @@ These metrics help in comparing prediction accuracy and model performance.
 ## 10. Results and Comparison
 A comparison table was generated showing the performance of all models.  
 Tree-based ensemble models such as **Random Forest** and **Gradient Boosting** performed the best, achieving higher R² scores and lower prediction errors.
+<img src="https://github.com/user-attachments/assets/xxxx" />
 
-*(Insert model comparison graph image here if available)*
 
 ---
 

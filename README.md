@@ -1,7 +1,7 @@
 # Data Generation using Modelling and Simulation for Machine Learning  
 ## UCS654 Assignment 6  
 ### Name – Saniya Jindal  
-### Roll No – 183  
+### Roll No – 102303183  
 
 ---
 
@@ -110,8 +110,3 @@ The generated data was successfully used to train and compare multiple ML models
 
 ---
 
-## 12. How to Run
-1. Open the notebook in Google Colab  
-2. Install SimPy using `pip install simpy`  
-3. Run all cells sequentially  
-4. Observe simulation results and model comparison graph  

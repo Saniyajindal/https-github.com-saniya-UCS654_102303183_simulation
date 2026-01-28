@@ -1,45 +1,140 @@
+# Data Generation using Modelling and Simulation for Machine Learning
 
-# Data Generation using Modeling and Simulation for Machine Learning
+## 1. Introduction
+In many real-world scenarios, collecting large amounts of real data is costly, time-consuming, or impractical. Modelling and simulation provide an effective way to generate synthetic data that can be used for machine learning tasks.
 
-## Introduction
-This project focuses on generating synthetic data using simulation techniques and applying Machine Learning models to analyze system performance. Instead of using real-world data, a simulated environment was created to produce training data.
+In this project, an open-source simulation tool is used to generate data through modelling and simulation, and multiple machine learning models are trained and evaluated on the generated dataset.
 
-## Simulation Tool Used
-The simulation was implemented using **SimPy**, a Python-based discrete-event simulation library used to model real-world systems such as queues and service systems.
+---
 
-## System Modeled
-A **Bank Queue System** was simulated where customers arrive randomly and are served by limited counters. The waiting time of customers depends on arrival rate, service time, and number of counters.
+## 2. Simulation Tool Used
+**SimPy** – an open-source, Python-based discrete-event simulation library.
 
-## Parameters and Bounds
+SimPy allows modelling of real-world systems such as queues, networks, and resource-sharing environments. It is lightweight, easy to use, and suitable for integration with machine learning workflows.
 
-| Parameter | Lower Bound | Upper Bound |
-|-----------|-------------|-------------|
-| Arrival Rate | 1 | 10 |
-| Service Time | 2 | 15 |
-| Number of Counters | 1 | 5 |
-| Simulation Time | 200 | 500 |
+---
 
-## Data Generation
-1000 simulations were performed by randomly selecting parameter values within the defined bounds. Each simulation produced the average waiting time, forming a synthetic dataset.
+## 3. Problem Description
+A hospital patient queue system is simulated where:
 
-## Machine Learning Models Used
+- Patients arrive at a hospital  
+- A limited number of doctors are available  
+- Each patient experiences a waiting time before treatment  
+
+The goal of the simulation is to study how different system parameters affect the average patient waiting time, and then use machine learning models to predict the waiting time based on these parameters.
+
+---
+
+## 4. Simulation Model and Parameters
+
+### 4.1 Simulation Model
+The system is modelled as a discrete-event simulation using SimPy:
+
+- Patient arrivals follow an exponential distribution  
+- Service time also follows an exponential distribution  
+- Doctors are modelled as limited resources  
+
+### 4.2 Simulation Parameters and Bounds
+
+| Parameter        | Description                              | Lower Bound | Upper Bound |
+|------------------|------------------------------------------|-------------|-------------|
+| arrival_rate     | Patient arrival rate (per unit time)     | 1           | 10          |
+| service_rate     | Service rate of doctors                  | 2           | 12          |
+| doctors          | Number of doctors available              | 1           | 5           |
+| simulation_time  | Total simulation duration                | 100         | Fixed       |
+
+These bounds were chosen to represent realistic and stable system behaviour.
+
+---
+
+## 5. Data Generation Methodology
+
+- Random values for arrival rate, service rate, and number of doctors are generated within the defined bounds.  
+- The parameters are passed to the SimPy simulation.  
+- The simulation runs for a fixed duration.  
+- The average waiting time of patients is recorded.  
+- Steps 1–4 are repeated 1000 times to generate a synthetic dataset.  
+
+Each simulation run produces one data sample.
+
+---
+
+## 6. Dataset Description
+
+The generated dataset contains the following features:
+
+| Feature Name   | Description                               |
+|---------------|-------------------------------------------|
+| arrival_rate  | Patient arrival rate                      |
+| service_rate  | Doctor service rate                       |
+| doctors       | Number of doctors                         |
+| avg_wait_time | Average patient waiting time (target)     |
+
+The dataset is saved as **simulation_data.csv**.
+
+---
+
+## 7. Data Visualization
+A scatter plot is generated to visualize the relationship between arrival rate and average waiting time. This helps in understanding the system behaviour and validates the simulation results.
+
+*(Insert visualization image here if available)*
+
+---
+
+## 8. Machine Learning Models Used
+
+The following regression models were trained and evaluated:
+
 - Linear Regression  
-- Decision Tree  
-- Random Forest  
-- Gradient Boosting  
-- KNN  
-- Support Vector Regression (SVR)
+- Decision Tree Regressor  
+- Random Forest Regressor  
+- Gradient Boosting Regressor  
+- Support Vector Regressor (SVR)  
+- K-Nearest Neighbors Regressor (KNN)
 
-## Evaluation Metrics
+---
+
+## 9. Model Evaluation Metrics
+
 The models were evaluated using:
-- **R² Score**
-- **Mean Absolute Error (MAE)**
 
-## Results
-A comparison table of models was generated, and performance graphs were plotted to visualize the results.
+- Mean Squared Error (MSE)  
+- R² Score  
 
-## Best Model
-Ensemble models such as **Random Forest** and **Gradient Boosting** showed the best performance with the highest R² score.
+These metrics help in comparing prediction accuracy and model performance.
 
-## Conclusion
-This project demonstrates how simulation-based data generation can be used when real datasets are unavailable, and how ML models can learn patterns from simulated environments.
+---
+
+## 10. Results and Comparison
+A comparison table was generated showing the performance of all models. Tree-based ensemble models such as Random Forest and Gradient Boosting performed the best, achieving higher R² scores and lower prediction errors.
+
+*(Insert result graph image here if available)*
+
+---
+
+## 11. Conclusion
+This project demonstrates how modelling and simulation can be effectively used to generate synthetic data for machine learning tasks. The use of SimPy enabled realistic system simulation, and the generated data was successfully used to train and compare multiple ML models.
+
+Simulation-based data generation is especially useful in situations where real data is scarce or difficult to obtain.
+
+---
+
+## 12. Files in the Repository
+
+- simpy_hospital_simulation.ipynb – Google Colab notebook containing simulation and ML code  
+- simulation_data.csv – Generated dataset  
+- README.md – Project documentation  
+
+---
+
+## 13. How to Run
+
+1. Open the notebook in Google Colab  
+2. Install SimPy using:
+
+   ```bash
+   pip install simpy
+   ```
+
+3. Run all cells sequentially  
+4. Observe simulation results, graphs, and model comparisons  

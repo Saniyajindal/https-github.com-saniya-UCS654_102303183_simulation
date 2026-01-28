@@ -1,4 +1,4 @@
-# https-github.com-saniya-UCS654_102303183_simulation
+
 # Data Generation using Modeling and Simulation for Machine Learning
 
 ## Introduction
